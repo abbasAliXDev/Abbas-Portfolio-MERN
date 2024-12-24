@@ -1,0 +1,1490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Portfolio</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+        body {
+            width: 100%;
+            min-height: 100vh;
+            background-color: #111;
+            color: var(--text-color);
+        }
+        #container {
+            width: 100%;
+            height: auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #firstSection {
+            width: 100%;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: row;
+            position: relative;
+        }
+
+        .firstLft,
+        .firstRgt {
+            width: 50%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .firstRgt {
+            position: relative;
+        }
+
+        .imageContainer {
+            width: 320px;
+            border-radius: 30px;
+            height: 420px;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            box-shadow: rgba(0, 0, 0, 0.34) 0px 3px 8px;
+            z-index: 996;
+            background-image: url('https://i.ibb.co/w7whpQt/developer-pic-2.webp');
+        }
+
+        .topFixed {
+            width: 400px;
+            z-index: 999;
+            position: absolute;
+            height: 90px;
+            top: 0px;
+            left: 0px;
+            background-color: #111;
+        }
+
+        .leftFixed {
+            width: 25%;
+            height: 100%;
+            background-color: #FFB000;
+            position: absolute;
+            clip-path: polygon(0 0, 70% 0%, 100% 100%, 0% 100%);
+            top: 0px;
+            left: 0px;
+        }
+
+        .hdgHero {
+            line-height: 38px;
+            font-size: 34px;
+            font-weight: 700;
+            color: white;
+            width: 100%;
+            text-align: left;
+            text-transform: uppercase;
+        }
+
+        .hdgHero div {
+            display: flex;
+            width: 100%;
+            align-items: center;
+            justify-content: left;
+            flex-direction: row;
+            gap: 20px;
+        }
+
+        .visibleHidden {
+            opacity: 0;
+        }
+
+        .specialWords span {
+            color: #FFB000;
+        }
+
+        .descHero {
+            font-size: 15px;
+            width: 100%;
+            text-align: left;
+            margin-top: 14px;
+            color: #fff;
+            padding-right: 25%;
+            line-height: 26px;
+            font-weight: 300;
+        }
+
+        .btnDivHero {
+            width: 100%;
+            text-align: left;
+            margin-top: 16px;
+        }
+
+        .btnDivHero>div {
+            align-items: center;
+            justify-content: left;
+            background-color: transparent;
+            border: 2px solid #FFB000;
+            position: relative;
+            cursor: pointer;
+            display: inline-flex;
+            border-radius: 20px;
+            padding-right: 22px;
+            color: #fff;
+        }
+
+        .btnDivHero>div:hover {
+            cursor: pointer;
+        }
+
+        .btnDivHero>div:active {
+            cursor: pointer;
+            transform: scale(0.96);
+            transition: 0.5s all ease;
+        }
+
+        .btnDivHero div button {
+            padding: 10px 15px;
+            background-color: transparent;
+            border: none;
+            outline: none;
+            font-size: 13px;
+            cursor: pointer;
+            font-weight: 500;
+            color: #fff;
+            text-transform: uppercase;
+        }
+
+        .btnDivHero div .circleBtn {
+            width: 43px;
+            height: 43px;
+            position: absolute;
+            background-color: #FFB000;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            right: -15px;
+            top: -2px;
+        }
+
+        .circleBtnSpecial:hover {
+            animation: rotate 2s linear infinite;
+        }
+
+        .navList {
+            height: 90%;
+            width: 9%;
+            position: absolute;
+            right: 0px;
+            top: 0%;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            flex-direction: column;
+        }
+
+        .Tabs {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .navCircle {
+            width: 40px;
+            height: 40px;
+            background-color: #2A2A2A;
+            display: flex;
+            cursor: pointer;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            border-radius: 50%;
+        }
+
+        .activeNavCircle {
+            transition: 0.5s all ease;
+            background-color: #FFB000 !important;
+        }
+
+        #secondSection {
+            width: 100%;
+            height: auto;
+            display: flex;
+            flex-direction: column;
+            margin-top: 30px;
+        }
+
+        .secondSectionHdg {
+            width: 100%;
+            position: relative;
+        }
+
+        .bgHdg {
+            font-size: 90px;
+            width: 100%;
+            position: absolute;
+            top: -35px;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: #e8e6e61e;
+            left: 0px;
+            letter-spacing: 8px;
+            text-align: center;
+        }
+
+        .aboutHdg {
+            width: 100%;
+            font-size: 45px;
+            font-weight: 800;
+            letter-spacing: 0.4px;
+            color: #fff;
+            text-transform: uppercase;
+            filter: drop-shadow(0px 10px 10px rgba(0, 0, 0, 0.5));
+            z-index: 999;
+            position: relative;
+            text-align: center;
+        }
+
+        .secondSectionMain {
+            width: 100%;
+            height: 320px;
+            margin-top: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: row;
+        }
+
+        .secondSectionMain>div {
+            width: 50%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .secondSectionLft {
+            align-items: left;
+            padding-left: 7%;
+            justify-content: center;
+        }
+
+        .personalInfoAbout {
+            width: 100%;
+            text-align: left;
+            font-family: "Poppins";
+            font-size: 25px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            color: #fff;
+            filter: drop-shadow(0px 3px 5px rgba(0, 0, 0, 0.5));
+            text-transform: uppercase;
+        }
+
+        .usefulLink {
+            text-decoration: none !important;
+            color: #fff;
+            cursor: pointer !important;
+        }
+
+        .tableDataView {
+            width: 100%;
+            height: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: left;
+            justify-content: center;
+            color: #fff;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .tableDataView>div {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: left;
+            width: 100%;
+        }
+
+        .tableDataView>div>div {
+            width: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: left;
+            flex-direction: row;
+            gap: 5px;
+        }
+
+        .tableDataView>div>div>span:nth-child(1) {
+            color: grey;
+            font-size: 14px;
+        }
+
+        .tableDataView>div>div>span:nth-child(2) {
+            color: white;
+            font-size: 15px;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+        }
+
+        .gridSecondSection {
+            width: 70%;
+            height: 90%;
+            display: grid;
+            gap: 15px;
+            grid-template-rows: auto;
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .boxSecondSection {
+            width: auto;
+            height: auto;
+            position: relative;
+            border: 1px solid #d3d3d362;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .boxSecondSection>div:nth-child(1) {
+            padding-top: 15px;
+            padding-left: 15px;
+            color: #FFB000;
+            font-size: 45px;
+            font-weight: 600;
+        }
+
+        .boxSecondSection>div:nth-child(2) {
+            display: flex;
+            align-items: center;
+            margin-top: -10px;
+            justify-content: center;
+            flex-direction: row;
+            width: 100%;
+            margin-left: -10px;
+            gap: 9px;
+        }
+
+        .boxSecondSection>div:nth-child(2)>div:nth-child(1) {
+            position: relative;
+        }
+
+        .boxSecondSection>div:nth-child(2)>div:nth-child(1)::before {
+            position: absolute;
+            width: 300%;
+            content: '';
+            height: 1px;
+            top: 12px;
+            left: -20px;
+            background-color: rgb(99, 99, 99);
+        }
+
+        .boxSecondSection>div:nth-child(2)>div:nth-child(2) {
+            display: flex;
+            line-height: 20px;
+            font-size: 15px;
+            flex-direction: column;
+            text-transform: uppercase;
+            font-weight: 200;
+            letter-spacing: 0.3px;
+            color: #fff;
+        }
+
+        .secondSectionNav {
+            position: absolute;
+            top: 0px;
+            color: #fff;
+            right: 0px;
+            width: 10%;
+            height: 100%;
+        }
+
+        #thirdSection {
+            width: 100%;
+            height: auto;
+            margin-top: 40px;
+        }
+
+        .skillHdg {
+            width: 100%;
+            text-align: center;
+            font-family: "Poppins";
+            font-size: 25px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+            color: #fff;
+        }
+
+        .skillGrid {
+            width: 100%;
+            margin-top: 20px;
+            margin-bottom: 35px;
+            height: 370px;
+            display: grid;
+            padding: 0% 5%;
+            gap: 35px;
+            grid-template-rows: 1fr 1fr;
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        .skillBox {
+            width: auto;
+            height: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+        }
+
+        .skillBox .skillCircle {
+            width: 100%;
+            height: 85%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .skillBox .skillWritten {
+            width: 100%;
+            font-weight: 300;
+            letter-spacing: 0.4px;
+            text-align: center;
+        }
+
+        .circular {
+            width: 130px;
+            height: 130px;
+            position: relative;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            font-size: 27px;
+            font-weight: 500;
+            background-color: #111;
+            margin-bottom: 20px;
+        }
+
+        .circularFirst::before {
+            position: absolute;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            left: 50%;
+            content: '';
+            border-radius: 50%;
+            width: 100%;
+            height: 100%;
+            border: 6px solid #403939;
+            border-top: 6px solid #FFB000;
+        }
+
+        .circularSecond::before {
+            position: absolute;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            left: 50%;
+            content: '';
+            border-radius: 50%;
+            width: 100%;
+            height: 100%;
+            border: 6px solid #403939;
+            border-right: 6px solid #FFB000;
+            border-bottom: 6px solid #FFB000;
+        }
+
+        .circularThird::before {
+            position: absolute;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            left: 50%;
+            content: '';
+            border-radius: 50%;
+            width: 100%;
+            height: 100%;
+            border: 6px solid #403939;
+            border-left: 6px solid #FFB000;
+            border-top: 6px solid #FFB000;
+            border-bottom: 6px solid #FFB000;
+        }
+
+        .circularFourth::before {
+            position: absolute;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            left: 50%;
+            content: '';
+            border-radius: 50%;
+            width: 100%;
+            height: 100%;
+            border: 6px solid #FFB000;
+        }
+
+        #fourthSection {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            margin-top: 55px;
+        }
+
+        .experienceEducationHdg {
+            width: 100%;
+            text-align: center;
+            font-size: 24px;
+            font-weight: 400;
+            color: #fff;
+            margin-bottom: 15px;
+            font-family: "Poppins";
+            text-transform: uppercase;
+        }
+
+        .experienceEducationGrid {
+            width: 100%;
+            height: 400px;
+            padding: 0% 5%;
+            display: flex;
+            flex-direction: row;
+            margin-top: 20px;
+            margin-bottom: 50px;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+        }
+
+        .experienceEducationGrid>div {
+            width: 50%;
+            height: 100%;
+        }
+
+        .exEdLft {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: auto;
+            gap: 20px;
+        }
+
+        .section {
+            width: auto;
+            height: auto;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+        }
+
+        .sectionLft {
+            width: 15%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .sectionLftCircle {
+            width: 40px;
+            height: 40px;
+            background-color: #FFB000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+
+        .sectionLftLine {
+            width: 1px;
+            height: calc(100% - 40px);
+            background-color: #d3d3d337;
+        }
+
+        .sectionRgt {
+            width: 85%;
+            height: 100%;
+        }
+
+        .exEdRgt {
+            gap: 20px;
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: auto;
+        }
+
+        .sectionRgt>div:nth-child(1) {
+            width: 100px;
+            height: 35px;
+            padding: 10px;
+            background-color: #2a2a2add;
+            display: flex;
+            margin-bottom: 10px;
+            align-items: center;
+            font-size: 14px;
+            letter-spacing: 0.3px;
+            font-weight: 400;
+            justify-content: center;
+            flex-direction: column;
+            border-radius: 40px;
+        }
+
+        .sectionRgt>div:nth-child(2) {
+            font-size: 18px;
+            font-weight: 400;
+            letter-spacing: 0.3px;
+            text-transform: uppercase;
+        }
+
+        .sectionRgt>div:nth-child(2)>span {
+            font-size: 16px;
+            font-weight: 500;
+            color: gray;
+        }
+
+        .sectionRgt>div:nth-child(3) {
+            color: gray;
+            font-size: 15px;
+            font-weight: 400;
+            margin-top: 2px;
+            line-height: 24px;
+        }
+
+        .fifthSectionMain{
+            width: 100%;
+            height: auto;
+            position: relative;
+        }
+
+        .fifthSectionNav{
+            width: 100%;
+            height: auto;
+        }
+        .fifthSectionNav > ul{
+            list-style: none;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            color: #fff;
+            margin-top: 60px;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            font-weight: 400;
+            letter-spacing: 0.3px;
+        }
+
+        .fifthSectionNavActive{
+            color: #FFB000;
+        }
+
+        .fifthSectionGrid{
+            width: 100%;
+            height: 400px;
+            display: grid;
+            gap: 20px;
+            grid-template-rows: 1fr 1fr;
+            margin-top: 20px;
+            grid-template-columns: repeat(3,1fr);
+            padding: 0% 10%;
+        }
+
+        .fifthSectionBox{
+            width: auto;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0px 5px 5px rgba(0,0,0,0.5);
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+        }
+
+        .fifthNav{
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            color: #fff;
+        }
+
+        .fifthSectionBox1{
+            background-image: url('https://www.elegantthemes.com/blog/wp-content/uploads/2018/12/top11.png');
+        }
+
+        .fifthSectionBox2{
+            background-image: url('https://blog.openclassrooms.com/en/wp-content/uploads/sites/4/2018/03/web-develoment.jpg');
+        }
+
+        .fifthSectionBox3{
+            background-image: url('https://providerdigital.com.au/wp-content/uploads/2024/04/web-design-the-power-of-images-1024x576.jpg');
+        }
+
+        .fifthSectionBox4{
+            background-image: url('https://jessup.edu/wp-content/uploads/2024/01/Is-Web-Development-Oversaturated.jpg');
+        }
+
+        .fifthSectionBox5{
+            background-image: url('https://img.freepik.com/free-photo/web-design-technology-browsing-programming-concept_53876-163260.jpg');
+        }
+
+        .fifthSectionBox6{
+            background-image: url('https://sagaratechnology.com/blog/wp-content/uploads/2022/03/AdobeStock_256229414.jpg');
+        }
+
+        #sixthSection{
+            width: 100%;
+            height: auto;
+            margin-top: 130px;
+        }
+
+        .sixthSectionMain{
+            width: 100%;
+            position: relative;
+            display: flex;
+            padding: 0% 10%;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            margin-top: 70px;
+            margin-bottom: 15px;
+            height: 370px;
+        }
+
+        .sixthSectionNav{
+            width: 5%;
+            height: 100%;
+            position: absolute;
+            right: 0px;
+            top: 0px;
+            color: #fff;
+        }
+
+        .sixthSectionLft{
+            width: 35%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: left;
+            justify-content: center;
+        }
+
+        .sixthSectionRgt{
+            width: 65%;
+            height: 100%;
+        }
+
+        .sixthSectionLft > div:nth-child(1){
+            font-size: 25px;
+            font-weight: 500;
+            letter-spacing: 0.3px;
+            text-transform: uppercase;
+            color: #fff;
+        }
+
+        .sixthSectionLft > div:nth-child(2){
+            font-size: 15px;
+            font-weight: 300;
+            letter-spacing: 0.3px;
+            color: #fff;
+            padding-right: 15%;
+        }
+
+        .sixthSectionLft > div:nth-child(3){
+            width: 100%;
+            margin-top: 20px;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+        }
+
+        .sixthSectionLft > div:nth-child(3)>div{
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: left;
+            gap: 10px;
+            color: #fff;
+        }
+
+        .sixthSectionLft > div:nth-child(3)>div i{
+            font-size: 30px;
+            color: #FFB000;
+        }
+
+        .sixthSectionLft > div:nth-child(3)>div>div:nth-child(2)>div:nth-child(1){
+            font-size: 14px;
+            margin-bottom: 2px;
+            font-weight: 400;
+            color: gray;
+            text-transform: uppercase;
+        }
+
+        .sixthSectionLft > div:nth-child(3)>div>div:nth-child(2)>div:nth-child(2){
+            font-size: 15px;
+            padding-right: 10%;
+            font-weight: 200;
+        }
+
+        .sixthSectionLft > div:nth-child(4){
+            display: flex;
+            width: 100%;
+            align-items: center;
+            justify-content: left;
+            gap: 10px;
+            margin-top: 24px;
+            margin-bottom: 15px;
+        }
+
+        .circleSocial{
+            width: 40px;
+            height: 40px;
+            background-color: #2A2A2A;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            cursor: pointer;
+            border-radius: 50%;
+        }
+
+        .circleSocial:hover{
+            background-color: #2a2a2aad;
+            transition: 0.25s all ease;
+        }
+
+        .sixthSectionRgt > form{
+            width: 100%;
+            height: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: left;
+            justify-content: center;
+            gap: 25px;
+        }
+
+        .sixthSectionRgt > form > div:nth-child(1){
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: left;
+            gap: 25px;
+        }
+
+        .sixthSectionRgt > form > div:nth-child(1)>div{
+            width: 50%;
+        }
+        .sixthSectionRgt > form > div:nth-child(1)>div>input{
+            width: 100%;
+        }
+
+        #YourName{
+            border: none;
+            outline: none;
+            font-family: "Poppins";
+            padding: 10px 15px;
+            border-radius: 20px;
+            color: #fff;
+            font-weight: 300;
+            letter-spacing: 0.3px;
+            background-color: #2A2A2A;
+        }
+
+        #YourEmail{
+            border: none;
+            outline: none;
+            font-family: "Poppins";
+            padding: 10px 15px;
+            border-radius: 20px;
+            color: #fff;
+            font-weight: 200;
+            letter-spacing: 0.3px;
+            background-color: #2A2A2A;
+        }
+
+        .sixthSectionRgt > form > div:nth-child(2){
+            width: 100%;
+            height: auto;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: left;
+        }
+        .sixthSectionRgt > form > div:nth-child(2) > input{
+            width: 100%;
+            padding: 10px 15px;
+            height: 40px;
+            background-color: #2A2A2A;
+            border: none;
+            font-weight: 200;
+            letter-spacing: 0.3px;
+            border-radius: 20px;
+            outline: none;
+            color: #fff;
+            font-family: "Poppins";
+        }
+
+        .sixthSectionRgt > form > div:nth-child(3) > textarea{
+            resize: none;
+            width: 100%;
+            height: 100px;
+            background-color: #2A2A2A;
+            color: #fff;
+            border: none;
+            font-weight: 200;
+            padding: 13px 18px;
+            letter-spacing: 0.3px;
+            border-radius: 20px;
+            outline: none;
+            color: #fff;
+            font-family: "Poppins";
+        }
+
+        .sixthSectionRgt > form input::placeholder, .sixthSectionRgt > form textarea::placeholder{
+            color: rgb(201, 196, 196);
+            font-weight: 200;
+        }
+
+        #seventhSection{
+            position: relative;
+            width: 100%;
+            height: auto;
+            margin-top: 45px;
+            margin-bottom: 35px;
+        }
+
+        .seventhGrid{
+            width: 100%;
+            height: auto;
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            padding: 0% 12%;
+            margin-top: 40px;
+            gap: 20px;
+        }
+
+        .seventhBox{
+            width: auto;
+            height: 350px;
+        }
+        .seventhBox > img{
+            width: 100%;
+            border-bottom: 6px solid #FFB000;
+            height: 185px;
+        }
+
+        .lineOfSeventhBox{
+            width: 100%;
+            height: 5px;
+        }
+
+        .seventhTextBox > div:nth-child(1){
+            font-size: 18px;
+            font-weight: 500;
+            letter-spacing: 0.4px;
+            margin-top: 10px;
+            line-height: 24px;
+            color: #fff;
+        }
+
+        .seventhTextBox > div:nth-child(2){
+            width: 100%;
+            height: 55px;
+            display: block;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            color: #fff;
+            font-size: 13px;
+            font-weight: 400;
+            margin-top: 10px;
+        }
+
+        .seventhNav{
+            width: 10%;
+            height: 100%;
+            position: absolute;
+            right: 0px;
+            top: 20%;
+            color: #fff;
+        }
+
+        @keyframes rotate {100% {rotate: 360deg;}}
+    </style>
+</head>
+<body>    
+
+
+    <div id="container">
+        <div id="firstSection">
+            <div class="firstLft">
+
+                <div class="leftFixed"></div>
+                <div class="topFixed"></div>
+                <div class="imageContainer"></div>
+
+            </div>
+            <div class="firstRgt">
+
+                <div class="navList">
+                    <div>
+                        <div class="navCircle"><i class="fa-regular fa-lightbulb"></i></div>
+                    </div>
+                    <div class="Tabs">
+                        <a class="usefulLink" href="#firstSection"><div class="navCircle activeNavCircle"><i class="fa-solid fa-home"></i></div></a>
+                        <a class="usefulLink" href="#secondSection"><div class="navCircle"><i class="fa-solid fa-user"></i></div></a>
+                        <a class="usefulLink" href="#fifthSection"><div class="navCircle"><i class="fa-solid fa-gift"></i></div></a>
+                        <a class="usefulLink" href="#sixthSection"><div class="navCircle"><i class="fa-solid fa-envelope-open"></i></div></a>
+                        <a class="usefulLink" href="#seventhSection"><div class="navCircle"><i class="fa-solid fa-comments"></i></div></a>
+                    </div>
+                </div>
+
+                <div class="hdgHero">
+                    <div class="specialWords"><span>-</span><span>I'M ABBAS ALI.</span></div>
+                    <div><span class="visibleHidden">-</span><span>Web Designer</span></div>
+                </div>
+                <div class="descHero">Lorem ipsum dolor sit amet consectetur adipisicing elit. In laudantium unde blanditiis laboriosam tempore expedita quaerat omnis ipsam modi error, voluptas sint quas!</div>
+                <div class="btnDivHero">
+                    <div>
+                        <button>More About Me</button>
+                        <div class="circleBtnSpecial circleBtn"><i class="fa-solid fa-arrow-right"></i></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div id="secondSection">
+            <div class="secondSectionHdg">
+                <div class="bgHdg">RESUME</div>
+                <div class="aboutHdg specialWords">About <span>Me</span></div>
+            </div>
+            <div class="secondSectionMain">
+                <div class="secondSectionLft">
+                    <div class="personalInfoAbout">Personal Info</div>
+                    <div class="tableDataView">
+                        <div>
+                            <div><span>First Name:</span><span>Abbas</span></div>
+                            <div><span>Last Name:</span><span>Ali</span></div>
+                        </div>
+                        <div>
+                            <div><span>Age:</span><span>16</span></div>
+                            <div><span>Nationality:</span><span>Pakistani</span></div>
+                        </div>
+                        <div>
+                            <div><span>Work:</span><span>Available</span></div>
+                            <div><span>Address:</span><span>Pakistan</span></div>
+                        </div>
+                        <div>
+                            <div><span>Phone:</span><span>1234567890</span></div>
+                            <div><span>Email:</span><span>abbas@mail.com</span></div>
+                        </div>
+                        <div>
+                            <div><span>Skype:</span><span>abbas.milner</span></div>
+                            <div><span>Language:</span><span>Urdu, English</span></div>
+                        </div>
+                        <div>
+                            <div class="btnDivHero">
+                                <div><a class="usefulLink" href="CV.docx"><button>Dowload Cv</button><div class="circleBtn"><i class="fa-solid fa-download"></i></div></a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="secondSectionRgt">
+
+                    <div class="secondSectionNav">
+                        <div class="Tabs">
+                            <a class="usefulLink" href="#firstSection"><div class="navCircle"><i class="fa-solid fa-home"></i></div></a>
+                            <a class="usefulLink" href="#secondSection"><div class="navCircle activeNavCircle"><i class="fa-solid fa-user"></i></div></a>
+                            <a class="usefulLink" href="#fifthSection"><div class="navCircle"><i class="fa-solid fa-gift"></i></div></a>
+                            <a class="usefulLink" href="#sixthSection"><div class="navCircle"><i class="fa-solid fa-envelope-open"></i></div></a>
+                            <a class="usefulLink" href="#seventhSection"><div class="navCircle"><i class="fa-solid fa-comments"></i></div></a>
+                        </div>
+                    </div>
+
+                    <div class="gridSecondSection">
+                        <div class="boxSecondSection">
+
+                            <div>12+</div>
+                            <div>
+                                <div>-</div>
+                                <div>
+                                    <span>Years Of</span>
+                                    <span>Experience</span>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="boxSecondSection">
+
+                            <div>97+</div>
+                            <div>
+                                <div>-</div>
+                                <div>
+                                    <span>Completed</span>
+                                    <span>Projects</span>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="boxSecondSection">
+
+                            <div>81+</div>
+                            <div>
+                                <div>-</div>
+                                <div>
+                                    <span>Happy</span>
+                                    <span>Customer</span>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="boxSecondSection">
+
+                            <div>53+</div>
+                            <div>
+                                <div>-</div>
+                                <div>
+                                    <span>Awards</span>
+                                    <span>Wins</span>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="thirdSection">
+            <div class="skillHdg">My Skills</div>
+            <div class="skillGrid">
+                <div class="skillBox">
+                    <div class="skillCircle">
+                        <div class="circular circularThird">89%</div>
+                    </div>
+                    <div class="skillWritten">HTML</div>
+                </div>
+                <div class="skillBox">
+                    <div class="skillCircle">
+                        <div class="circular circularSecond">64%</div>
+                    </div>
+                    <div class="skillWritten">HTML</div>
+                </div>
+                <div class="skillBox">
+                    <div class="skillCircle">
+                        <div class="circular circularFirst">89%</div>
+                    </div>
+                    <div class="skillWritten">HTML</div>
+                </div>
+                <div class="skillBox">
+                    <div class="skillCircle">
+                        <div class="circular circularFourth">89%</div>
+                    </div>
+                    <div class="skillWritten">HTML</div>
+                </div>
+                <div class="skillBox">
+                    <div class="skillCircle">
+                        <div class="circular circularThird">89%</div>
+                    </div>
+                    <div class="skillWritten">HTML</div>
+                </div>
+                <div class="skillBox">
+                    <div class="skillCircle">
+                        <div class="circular circularSecond">89%</div>
+                    </div>
+                    <div class="skillWritten">HTML</div>
+                </div>
+                <div class="skillBox">
+                    <div class="skillCircle">
+                        <div class="circular circularThird">89%</div>
+                    </div>
+                    <div class="skillWritten">HTML</div>
+                </div>
+                <div class="skillBox">
+                    <div class="skillCircle">
+                        <div class="circular circularFirst">89%</div>
+                    </div>
+                    <div class="skillWritten">HTML</div>
+                </div>
+            </div>
+        </div>
+        <div id="fourthSection">
+            <div class="experienceEducationHdg">Experience & Education</div>
+            <div class="experienceEducationGrid">
+                <div class="exEdLft">
+                    <div class="section">
+
+                        <div class="sectionLft">
+                            <div class="sectionLftCircle"><i class="fa-solid fa-message"></i></div>
+                            <div class="sectionLftLine"></div>
+                        </div>
+                        <div class="sectionRgt">
+                            <div>2015</div>
+                            <div>Web Developer - <span>ENVATO</span></div>
+                            <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis voluptas et exercitationem.</div>
+                        </div>
+
+                    </div>
+                    <div class="section">
+
+                        <div class="sectionLft">
+                            <div class="sectionLftCircle"><i class="fa-solid fa-message"></i></div>
+                            <div class="sectionLftLine"></div>
+                        </div>
+                        <div class="sectionRgt">
+                            <div>2015</div>
+                            <div>Web Developer - <span>ENVATO</span></div>
+                            <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis voluptas et exercitationem.</div>
+                        </div>
+
+                    </div>
+                    <div class="section">
+
+                        <div class="sectionLft">
+                            <div class="sectionLftCircle"><i class="fa-solid fa-message"></i></div>
+                            <div class="sectionLftLine"></div>
+                        </div>
+                        <div class="sectionRgt">
+                            <div>2015</div>
+                            <div>Web Developer - <span>ENVATO</span></div>
+                            <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis voluptas et exercitationem.</div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="exEdRgt">
+                    <div class="section">
+
+                        <div class="sectionLft">
+                            <div class="sectionLftCircle"><i class="fa-solid fa-message"></i></div>
+                            <div class="sectionLftLine"></div>
+                        </div>
+                        <div class="sectionRgt">
+                            <div>2015</div>
+                            <div>Web Developer - <span>ENVATO</span></div>
+                            <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis voluptas et exercitationem.</div>
+                        </div>
+
+                    </div>
+                    <div class="section">
+
+                        <div class="sectionLft">
+                            <div class="sectionLftCircle"><i class="fa-solid fa-message"></i></div>
+                            <div class="sectionLftLine"></div>
+                        </div>
+                        <div class="sectionRgt">
+                            <div>2015</div>
+                            <div>Web Developer - <span>ENVATO</span></div>
+                            <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis voluptas et exercitationem.</div>
+                        </div>
+
+                    </div>
+                    <div class="section">
+
+                        <div class="sectionLft">
+                            <div class="sectionLftCircle"><i class="fa-solid fa-message"></i></div>
+                            <div class="sectionLftLine"></div>
+                        </div>
+                        <div class="sectionRgt">
+                            <div>2015</div>
+                            <div>Web Developer - <span>ENVATO</span></div>
+                            <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis voluptas et exercitationem.</div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="fifthSection">
+
+            <div class="secondSectionHdg">
+                <div class="bgHdg">Works</div>
+                <div class="aboutHdg specialWords">My <span>Portfolio</span></div>
+            </div>
+
+            <div class="fifthSectionMain">
+
+                <div class="fifthNav">
+                    <div class="Tabs">
+                        <a class="usefulLink" href="#firstSection"><div class="navCircle"><i class="fa-solid fa-home"></i></div></a>
+                        <a class="usefulLink" href="#secondSection"><div class="navCircle"><i class="fa-solid fa-user"></i></div></a>
+                        <a class="usefulLink" href="#fifthSection"><div class="navCircle activeNavCircle"><i class="fa-solid fa-gift"></i></div></a>
+                        <a class="usefulLink" href="#sixthSection"><div class="navCircle"><i class="fa-solid fa-envelope-open"></i></div></a>
+                        <a class="usefulLink" href="#seventhSection"><div class="navCircle"><i class="fa-solid fa-comments"></i></div></a>
+                    </div>
+                </div>
+
+                <div class="fifthSectionNav">
+                    <ul>
+                        <li class="fifthSectionNavActive">All</li>
+                        <li>Logo</li>
+                        <li>Video</li>
+                        <li>Graphic Design</li>
+                        <li>Mockup</li>
+                    </ul>
+                </div>
+                <div class="fifthSectionGrid">
+                    <div class="fifthSectionBox fifthSectionBox1"></div>
+                    <div class="fifthSectionBox fifthSectionBox2"></div>
+                    <div class="fifthSectionBox fifthSectionBox3"></div>
+                    <div class="fifthSectionBox fifthSectionBox4"></div>
+                    <div class="fifthSectionBox fifthSectionBox5"></div>
+                    <div class="fifthSectionBox fifthSectionBox6"></div>
+                </div>
+            </div>
+        </div>
+        <div id="sixthSection">
+            <div class="secondSectionHdg">
+                <div class="bgHdg">Contact</div>
+                <div class="aboutHdg specialWords">Get in <span>Touch</span></div>
+            </div>
+            <div class="sixthSectionMain">
+                
+                <div class="sixthSectionNav">
+                    <div class="Tabs">
+                        <a class="usefulLink" href="#firstSection"><div class="navCircle"><i class="fa-solid fa-home"></i></div></a>
+                        <a class="usefulLink" href="#secondSection"><div class="navCircle"><i class="fa-solid fa-user"></i></div></a>
+                        <a class="usefulLink" href="#fifthSection"><div class="navCircle"><i class="fa-solid fa-gift"></i></div></a>
+                        <a class="usefulLink" href="#sixthSection"><div class="navCircle activeNavCircle"><i class="fa-solid fa-envelope-open"></i></div></a>
+                        <a class="usefulLink" href="#seventhSection"><div class="navCircle"><i class="fa-solid fa-comments"></i></div></a>
+                    </div>
+                </div>
+
+                <div class="sixthSectionLft">
+                    <div>Don't Be Shy!</div>
+                    <div>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et eos id vitae minima delectus. Asperiores, eaque nulla?</div>
+                    <div>
+                        <div>
+                            <div><i class="fa-solid fa-map"></i></div>
+                            <div>
+                                <div>Address Point</div>
+                                <div>Nazimabad No 3 Golmarket Karachi, Sindh PK</div>
+                            </div>
+                        </div>
+                        <div>
+                            <div><i class="fa-solid fa-envelope-open"></i></div>
+                            <div>
+                                <div>MAIL ME</div>
+                                <div>abbasali.zellesolutions@gmail.com</div>
+                            </div>
+                        </div>
+                        <div>
+                            <div><i class="fa-solid fa-square-phone"></i></div>
+                            <div>
+                                <div>CALL ME</div>
+                                <div>1234567890</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="circleSocial">
+                            <i class="fa-brands fa-facebook"></i>
+                        </div>
+                        <div class="circleSocial">
+                            <i class="fa-brands fa-twitter"></i>
+                        </div>
+                        <div class="circleSocial">
+                            <i class="fa-brands fa-instagram"></i>
+                        </div>
+                        <div class="circleSocial">
+                            <i class="fa-brands fa-github"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="sixthSectionRgt">
+                    <form>
+                        <div>
+                            <div><input required type="text" placeholder="YOUR NAME" id="YourName"></div>
+                            <div><input required type="email" placeholder="YOUR EMAIL" id="YourEmail"></div>
+                        </div>
+                        <div><input required type="text" placeholder="YOUR SUBJECT" id="YourSub"></div>
+                        <div><textarea id="yourMsg" placeholder="YOUR MESSAGE"></textarea></div>
+                        <div>
+                            <div class="btnDivHero">
+                                <div><button>SEND MESSAGE </button><div class="circleBtn"><i class="fa-solid fa-paper-plane"></i></div></div>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+
+        </div>
+        <div id="seventhSection">
+
+            <div class="seventhNav">
+                <div class="Tabs">
+                    <a class="usefulLink" href="#firstSection"><div class="navCircle"><i class="fa-solid fa-home"></i></div></a>
+                    <a class="usefulLink" href="#secondSection"><div class="navCircle"><i class="fa-solid fa-user"></i></div></a>
+                    <a class="usefulLink" href="#fifthSection"><div class="navCircle"><i class="fa-solid fa-gift"></i></div></a>
+                    <a class="usefulLink" href="#sixthSection"><div class="navCircle"><i class="fa-solid fa-envelope-open"></i></div></a>
+                    <a class="usefulLink" href="#seventhSection"><div class="navCircle activeNavCircle"><i class="fa-solid fa-comments"></i></div></a>
+                </div>
+            </div>
+
+            <div class="secondSectionHdg">
+                <div class="bgHdg">Posts</div>
+                <div class="aboutHdg specialWords">My <span>Blog</span></div>
+            </div>
+            <div class="seventhGrid">
+                <div class="seventhBox">
+                    <img src="https://blog.openclassrooms.com/en/wp-content/uploads/sites/4/2018/03/web-develoment.jpg" alt="">
+                    <div class="seventhTextBox">
+                        <div>How To Own Your Audience By Creating an Email List</div>
+                        <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur nesciunt, mollitia amet quidem blanditiis consequuntur repudiandae?</div>
+                    </div>
+                </div>
+                <div class="seventhBox">
+                    <img src="https://blog.openclassrooms.com/en/wp-content/uploads/sites/4/2018/03/web-develoment.jpg" alt="">
+                    <div class="seventhTextBox">
+                        <div>How To Own Your Audience By Creating an Email List</div>
+                        <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur nesciunt, mollitia amet quidem blanditiis consequuntur repudiandae?</div>
+                    </div>
+                </div>
+                <div class="seventhBox">
+                    <img src="https://blog.openclassrooms.com/en/wp-content/uploads/sites/4/2018/03/web-develoment.jpg" alt="">
+                    <div class="seventhTextBox">
+                        <div>How To Own Your Audience By Creating an Email List</div>
+                        <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur nesciunt, mollitia amet quidem blanditiis consequuntur repudiandae?</div>
+                    </div>
+                </div>
+                <div class="seventhBox">
+                    <img src="https://blog.openclassrooms.com/en/wp-content/uploads/sites/4/2018/03/web-develoment.jpg" alt="">
+                    <div class="seventhTextBox">
+                        <div>How To Own Your Audience By Creating an Email List</div>
+                        <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur nesciunt, mollitia amet quidem blanditiis consequuntur repudiandae?</div>
+                    </div>
+                </div>
+                <div class="seventhBox">
+                    <img src="https://blog.openclassrooms.com/en/wp-content/uploads/sites/4/2018/03/web-develoment.jpg" alt="">
+                <div class="seventhTextBox">
+                        <div>How To Own Your Audience By Creating an Email List</div>
+                        <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur nesciunt, mollitia amet quidem blanditiis consequuntur repudiandae?</div>
+                    </div>
+                </div>
+                <div class="seventhBox">
+                    <img src="https://blog.openclassrooms.com/en/wp-content/uploads/sites/4/2018/03/web-develoment.jpg" alt="">
+                    <div class="seventhTextBox">
+                        <div>How To Own Your Audience By Creating an Email List</div>
+                        <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur nesciunt, mollitia amet quidem blanditiis consequuntur repudiandae?</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
